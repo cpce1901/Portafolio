@@ -1,0 +1,23 @@
+.but{
+    width: 60%;    
+    margin-left: 25%;
+    margin-top: 0.1rem;
+    
+}
+
+@media (max-width: 991px) {
+    .but{
+        margin-top: 2rem; 
+        margin-left: 20%;
+              
+    }
+    
+  }
+
+  @media (max-width: 992px) {
+    .na {
+        display: none;
+    }
+              
+    
+  }

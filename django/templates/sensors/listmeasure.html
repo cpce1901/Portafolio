@@ -1,0 +1,240 @@
+{% extends 'include/base.html' %}
+
+{% load static %}
+
+{% block title %}Sensores{% endblock title %}
+
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'css/list-measure.css' %}">
+
+{% endblock style %}
+
+{% block content %} 
+
+
+{% if object_list == None %}
+
+<h1 class="my-4">Advetencia</h1>
+
+<p>Aun no existen registros de este sensor.   
+  Puese ser que no ha sido habilitado u/o que 
+  aún no recibe información desde el remoto</p>
+
+<p>Porfavor, pongase en contacto con su administrador.</p>
+
+<p>Telemetric SPA</p>
+  
+
+{% else %}  
+
+<div class="m-4">
+    <h1>Mediciones {{ object_list }}</h1>
+</div>
+
+  
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">   
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 w-auto text-auto">Voltaje L1 - N</h5>
+            <h5 id="v1" class="card-title display-4 text-auto">{{ me.v1 }} V</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Voltaje L2 - N</h5>
+            <h5 id="v2" class="card-title display-4 text-auto">{{ me.v2 }} V</h5>    
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Voltaje L3 - N</h5>
+            <h5 id="v3" class="card-title display-4 text-auto">{{ me.v3 }} V</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Voltaje L1 - L3</h5>
+            <h5 id="v13" class="card-title display-4 text-auto">{{ me.v13 }} V</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Voltaje L2 - L3</h5>
+            <h5 id="v23" class="card-title display-4 text-auto">{{ me.v23 }} V</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Voltaje L1 - L2</h5>
+            <h5 id="v12" class="card-title display-4 text-auto">{{ me.v23 }} V</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Corriente L1</h5>
+            <h5 id="i1" class="card-title display-4 text-auto">{{ me.i1 }} A</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Corriente L2</h5>
+            <h5 id="i2" class="card-title display-4 text-auto">{{ me.i2 }} A</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Corriente L3</h5>
+            <h5 id="i3" class="card-title display-4 text-auto">{{ me.i3 }} A</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Potencia L1</h5>
+            <h5 id="p1" class="card-title display-4 text-auto">{{ me.p1 }} KW</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Potencia L2</h5>
+            <h5 id="p2" class="card-title display-4 text-auto">{{ me.p2 }} KW</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Potencia L3</h5>
+            <h5 id="p3" class="card-title display-4 text-auto">{{ me.p3 }} KW</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Potencia Activa</h5>
+            <h5 id="pa" class="card-title display-4 text-auto">{{ me.pa }} KW/h</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Factor Potencia</h5>
+            <h5 id="fp" class="card-title display-4 text-auto">{{ me.fp }}</h5>           
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow p-3 mb-1 bg-body-whiterounded">
+        <div class="card-body">
+            <h5 class="card-title display-6 text-auto">Frecuencia</h5>
+            <h5 id="hz" class="card-title display-4 text-auto">{{ me.hz }} Hz</h5>           
+        </div>
+      </div>
+    </div>   
+
+</div>
+
+<script>
+  var socket = new WebSocket('ws://localhost:8000/ws/<sen>/');
+  const API = "http://127.0.0.1:8000/api-last/{{ me.sensor.id }}"
+
+  socket.onmessage = function(e){          
+    getData();  
+  }
+
+  const getData = async () => {
+    const res = await fetch(API);
+    const data = await res.json();
+
+    console.log(data);
+    
+    let v1 = data[0].me.vln.v1 + " V";
+    let v2 = data[0].me.vln.v2 + " V";
+    let v3 = data[0].me.vln.v3 + " V";
+
+    let v13 = data[0].me.vll.v13 + " V";
+    let v23 = data[0].me.vll.v23 + " V";
+    let v12 = data[0].me.vll.v12 + " V";
+
+    let i1 = data[0].me.il.i1 + " A";
+    let i2 = data[0].me.il.i2 + " A";
+    let i3 = data[0].me.il.i3 + " A";
+
+    let p1 = data[0].me.pl.p1 + " Kw";
+    let p2 = data[0].me.pl.p2 + " Kw";
+    let p3 = data[0].me.pl.p3 + " Kw";
+
+    let pa = data[0].me.ot.pa + " Kw/h";
+    let fp = data[0].me.ot.fp;
+    let hz = data[0].me.ot.hz + " Hz"; 
+
+    document.getElementById("v1").innerHTML = float(v1); 
+    document.getElementById("v2").innerHTML = float(v2); 
+    document.getElementById("v3").innerHTML = float(v3); 
+
+    document.getElementById("v13").innerHTML = float(v13); 
+    document.getElementById("v23").innerHTML = float(v23); 
+    document.getElementById("v12").innerHTML = float(v12); 
+
+    document.getElementById("i1").innerHTML = float(i1); 
+    document.getElementById("i2").innerHTML = float(i2); 
+    document.getElementById("i3").innerHTML = float(i3); 
+
+    document.getElementById("p1").innerHTML = float(p1); 
+    document.getElementById("p2").innerHTML = float(p2); 
+    document.getElementById("p3").innerHTML = float(p3); 
+
+    document.getElementById("pa").innerHTML = float(pa); 
+    document.getElementById("fp").innerHTML = float(fp); 
+    document.getElementById("hz").innerHTML = float(hz); 
+   
+  }
+
+  
+</script>
+
+{% endif %}
+
+
+{% endblock content %}
+
+{% block script %}   
+
+{% endblock script %}

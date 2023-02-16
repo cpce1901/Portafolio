@@ -1,0 +1,42 @@
+{% extends 'include/base.html' %}
+
+{% load static %}
+
+{% block title %}Sensores{% endblock title %}
+
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'css/list-sensors.css' %}">
+
+{% endblock style %}
+
+{% block content %}  
+
+<div class="m-4">
+    <h1>Sensores instalados</h1>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-3">
+    {% for s in sensors %} 
+    <div class="col">
+        <a href="{% url 'sensors_app:sensors-n' s.id %}" style="text-decoration: none;">
+      <div class="card h-100 shadow p-3 mb-5 bg-body-whiterounded">
+        <img src="{{ s.equipo.image.url }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ s.name }}</h5>
+          <p class="card-text">{{ s.equipo }} {{ s.equipo.model }}</p>
+          <p class="card-text"><small class="text-muted">{{ s.locate }}</small></p>
+        </div>
+      </div>
+    </a>
+    </div>    
+
+    {% endfor %}  
+  
+  </div>
+
+{% endblock content %}
+
+{% block script %}   
+
+{% endblock script %}

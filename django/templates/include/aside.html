@@ -1,0 +1,37 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse>
+    <div class="position-sticky pt-3 sidebar-sticky">
+      <ul class="nav flex-column nav-justified">       
+       
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/sensors/' %} active {% endif %}" href="{% url 'sensors_app:sensors' %}">
+            <span data-feather="thermometer" class="align-text-bottom"></span>
+            Sensores
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/dashboard/' %} active {% endif %}" href="#">
+            <span data-feather="pie-chart" class="align-text-bottom"></span>
+            Graficos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/dashboard/' %} active {% endif %}" href="#">
+            <span data-feather="send" class="align-text-bottom"></span>
+            Reportes
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/users/' %} active {% endif %}" href="{% url 'users_app:users' %}">
+            <span data-feather="user" class="align-text-bottom"></span>
+            Usuario
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'users_app:logout' %}">
+            <span data-feather="log-out" class="align-text-bottom"></span>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
